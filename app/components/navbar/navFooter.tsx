@@ -1,5 +1,8 @@
+'use client'
+
 import Container from "../Container";
-import {BiSearch} from "react-icons/Bi"
+import {GoHome, GoPerson} from "react-icons/Go"
+import {AiOutlineHeart} from "react-icons/Ai"
 
 const NavFooter = () => {
   return ( 
@@ -15,13 +18,22 @@ const NavFooter = () => {
         "
         >
       </hr>
-      <div
-        className="
-        
-        "
-      >
-        <BiSearch/> 
-      </div>
+        <div
+          className="flex justify-between items-center mt-8 mx-8 text-3xl text-gray-400"
+        >
+          <GoHome
+            className="hover:fill-blue-500"
+          />
+          <AiOutlineHeart
+           className="hover:fill-blue-500"
+          />
+          <GoPerson
+           className="hover:fill-blue-500"
+          />
+
+        </div>
+
+
     </Container>  
   );
 }
