@@ -7,12 +7,10 @@ const Navbar = () => {
   return ( 
     <div
       className="
-        fixed
         w-full
         top-0
-        z-10
         bg-white
-        max-md:hidden
+        
       "
     >
       <div 
