@@ -1,16 +1,31 @@
 'use client'
+
+import { ChangeEvent, useState } from "react";
 import {BiSearch} from "react-icons/Bi"
 import {IoIosNotificationsOutline} from "react-icons/Io"
 
+interface NavbarProps {
+  onSearch: (city: string) => void;
+}
 
-const Navbar = () => {
+const Navbar: React.FC<NavbarProps> = ({
+  onSearch
+}) => {
+  const [city, setCity] = useState<string>('');
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setCity(event.target.value);
+  }
+
+  const handleSearch = () => {
+    onSearch(city);
+  }
+
   return ( 
     <div
       className="
         w-full
         top-0
         bg-white
-        
       "
     >
       <div 
@@ -27,6 +42,8 @@ const Navbar = () => {
           />
           <input
             type="text"
+            value={city}
+            onChange={handleInputChange}
             placeholder="Search something here..."
             className="
               pl-12
@@ -41,12 +58,16 @@ const Navbar = () => {
             "
           >
           </input>
+          <button onClick={handleSearch}>Search </button>
           <IoIosNotificationsOutline
             size={30}
             />
 
       </div>
+
     </div>
+
+    
    );
 }
  
